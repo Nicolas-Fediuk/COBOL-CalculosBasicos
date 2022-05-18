@@ -11,63 +11,58 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-       01  semana1 pic 9(6).
-       01  semana2 pic 9(6).
-       01  semana3 pic 9(6).
-       01  semana4 pic 9(6).
-       01  sumSem1ySem2 pic 9(7).
-       01  sumSem2ySem3 pic 9(7).
-       01  TotalRecaudado pic 9(7).
-       01  TotalPromedio pic 9(6).
-       01  PorcentajeSem1 pic 9(7).
-       01  PorcentajeSem2 pic 9(7).
-       01  PorcentajeSem3 pic 9(7).
-       01  PorcentajeSem4 pic 9(7).
-       01  TotalPorcentajeSem1 pic 9(2).
-       01  TotalPorcentajeSem2 pic 9(2).
-       01  TotalPorcentajeSem3 pic 9(2).
-       01  TotalPorcentajeSem4 pic 9(2).
+       01  SEMANA1 pic 9(6).
+       01  SEMANA2 pic 9(6).
+       01  SEMANA3 pic 9(6).
+       01  SEMANA4 pic 9(6).
+       01  TOTAL-RECAUDADO pic 9(7).
+       01  TOTAL-PROMEDIO pic 9(6).
+       01  TOTAL-POR-SEMANA1 pic 9(2)V9(2).
+       01  TOTAL-POR-SEMANA2 pic 9(2)V9(2).
+       01  TOTAL-POR-SEMANA3 pic 9(2)V9(2).
+       01  TOTAL-POR-SEMANA4 pic 9(2)V9(2).
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
            DISPLAY "Ingrese lo recaudado de la semana 1".
-           ACCEPT semana1.
+           ACCEPT SEMANA1.
            DISPLAY "Ingrese lo recaudado de la semana 2".
-           ACCEPT semana2.
+           ACCEPT SEMANA2.
            DISPLAY "Ingrese lo recaudado de la semana 3".
-           ACCEPT semana3.
+           ACCEPT SEMANA3.
            DISPLAY "Ingrese lo recaudado de la semana 4".
-           ACCEPT semana4.
+           ACCEPT SEMANA4.
 
-           add semana1 to semana2 GIVING sumSem1ySem2.
-           add sumSem1ySem2 to semana3 GIVING sumSem2ySem3.
-           add sumSem2ySem3 to semana4 GIVING TotalRecaudado.
+           COMPUTE TOTAL-RECAUDADO = SEMANA1 + SEMANA2 + SEMANA3 +
+           SEMANA4.
 
-           DIVIDE TotalRecaudado by 4 GIVING TotalPromedio.
+           COMPUTE TOTAL-PROMEDIO = TOTAL-RECAUDADO / 4.
 
-           MULTIPLY semana1 by 100 GIVING PorcentajeSem1.
-           MULTIPLY semana2 by 100 GIVING PorcentajeSem2.
-           MULTIPLY semana3 by 100 GIVING PorcentajeSem3.
-           MULTIPLY semana4 by 100 GIVING PorcentajeSem4.
+           COMPUTE TOTAL-POR-SEMANA1 = (SEMANA1 * 100) / TOTAL-RECAUDADO
+           .
 
-           DIVIDE PorcentajeSem1 by TotalRecaudado GIVING
-           TotalPorcentajeSem1.
-           DIVIDE PorcentajeSem2 by TotalRecaudado GIVING
-           TotalPorcentajeSem2.
-           DIVIDE PorcentajeSem3 by TotalRecaudado GIVING
-           TotalPorcentajeSem3.
-           DIVIDE PorcentajeSem4 by TotalRecaudado GIVING
-           TotalPorcentajeSem4.
+           COMPUTE TOTAL-POR-SEMANA2 = (SEMANA2 * 100) / TOTAL-RECAUDADO
+           .
 
-           DISPLAY "Promedio recaudado al mes: "TotalPromedio.
+           COMPUTE TOTAL-POR-SEMANA3 = (SEMANA3 * 100) / TOTAL-RECAUDADO
+           .
+
+           COMPUTE TOTAL-POR-SEMANA4 = (SEMANA4 * 100) / TOTAL-RECAUDADO
+           .
+
+           DISPLAY "Promedio recaudado al mes: $"TOTAL-PROMEDIO.
+
            DISPLAY "Porcentaje recaudado de la semana 1: "
-           TotalPorcentajeSem1"%".
+           TOTAL-POR-SEMANA1"%".
+
            DISPLAY "Porcentaje recaudado de la semana 2: "
-           TotalPorcentajeSem2"%".
+           TOTAL-POR-SEMANA2"%".
+
            DISPLAY "Porcentaje recaudado de la semana 3: "
-           TotalPorcentajeSem3"%".
+           TOTAL-POR-SEMANA3"%".
+
            DISPLAY "Porcentaje recaudado de la semana 4: "
-           TotalPorcentajeSem4"%".
+           TOTAL-POR-SEMANA4"%".
 
             STOP RUN.
        END PROGRAM Ejercicio5.

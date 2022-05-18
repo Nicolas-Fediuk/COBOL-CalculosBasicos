@@ -9,18 +9,18 @@
        DATA DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
-       01  HorasTrabajadas pic 9(3).
-       01  ValorHoras pic 9(3).
-       01  Sueldo pic 9(6).
+       01  HORAS-TRABAJADAS pic 9(3).
+       01  VALOR-HOLA pic 9(3).
+       01  SUELDO pic 9(6).
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
             DISPLAY "Ingrese la cantidad de horas trabajadas: ".
-            ACCEPT HorasTrabajadas.
+            ACCEPT HORAS-TRABAJADAS.
             DISPLAY "Ingrese el valor de la hora laboral".
-            ACCEPT ValorHoras.
-            MULTIPLY HorasTrabajadas by ValorHoras GIVING sueldo.
-            DISPLAY "El sueldo a pagar es de: "Sueldo.
+            ACCEPT VALOR-HOLA.
+            MULTIPLY HORAS-TRABAJADAS by VALOR-HOLA GIVING SUELDO.
+            DISPLAY "El sueldo a pagar es de: "SUELDO.
 
             STOP RUN.
        END PROGRAM Ejercicio1.
